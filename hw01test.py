@@ -5,20 +5,18 @@ def classify_triangle(a, b, c):
     """
     Method that Classifies the triangle based on the sides given
     """
-    intersection = {a, b, c} & {a, b, c}
-    is_right_triangle = a ** 2 + b ** 2 == c ** 2
     triangle_class = 'Not a Triangle'
 
     if a <= 0 or b <= 0 or c <= 0:
         return triangle_class
 
-    if is_right_triangle:
+    if (a*a) + (b*b) == (c*c) or (b*b) + (c*c) == (a*a) or (c*c) + (a*a) == (b*b):
         triangle_classification = 'Right Angle Triangle'
-    elif len(intersection) == 1:
-        triangle_classification = 'Equilateral  Triangle'
-    elif len(intersection) == 2:
+    elif (a == b) and (b == c):
+        triangle_classification = 'Equilateral Triangle'
+    elif (a==b) or(b==c) or (c==a):
         triangle_classification = 'Isosceles Triangle'
-    else:
+    elif (a!=b and b!=c and c!=a):
         triangle_classification = 'Scalene Triangle'
 
     return triangle_classification
@@ -34,8 +32,8 @@ class TriangleClassification(unittest.TestCase):
         """
         Testcases for equilateral triangle
         """
-        self.assertEqual(classify_triangle(1, 1, 1), 'Equilateral  Triangle')
-        self.assertEqual(classify_triangle(10, 10, 10), 'Equilateral  Triangle')
+        self.assertEqual(classify_triangle(1, 1, 1), 'Equilateral Triangle')
+        self.assertEqual(classify_triangle(10, 10, 10), 'Equilateral Triangle')
 
     def test_classify_isosceles_triangles(self):
         """
