@@ -7,7 +7,7 @@ class TestGetRepo(unittest.TestCase):
     def test_normal_response(self):
         """Testing to check for expected repositories"""
         expected = [
-            "User: Kavya567",
+            "User: Kavyajadav",
             "Repo: Django Number of commits: 1",
             "Repo: embedded-projects Number of commits: 2",
             "Repo: helloworld Number of commits: 1",
