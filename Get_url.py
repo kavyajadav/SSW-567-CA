@@ -4,7 +4,7 @@ import requests
 
 def get_repo_info():
     """Requesting to get repository information from github"""
-    user_name, output = "Sachin568", []
+    user_name, output = "Kavya567", []
     user_url = requests.get(f"https://api.github.com/users/{user_name}/repos")
     repos = json.loads(user_url.text)
     output.append(f"User: {user_name}")
